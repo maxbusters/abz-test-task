@@ -1,0 +1,46 @@
+.header {
+    padding: 13px 0px;
+    background-color: white;
+
+    &__container {
+        @extend .container;
+
+        @include maxWidth(768px) {
+            width: 90%;
+        }
+    }
+
+    &__wrapper {
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        margin-right: 14px;
+        cursor: pointer;
+    }
+
+    .nav {
+        @include flex-row;
+        justify-content: space-between;
+
+        &__el {
+            @extend .button;
+
+            @include maxWidth(320px) {
+                @include font-sizes(10px, 12px);
+            }
+        }
+
+        &__el-signup {
+            @extend .button-signup;
+            margin-left: 10px;
+        }
+
+        &__el-users {
+            padding: 4px 29px;
+        }
+
+    }
+}

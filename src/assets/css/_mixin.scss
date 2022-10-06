@@ -1,0 +1,71 @@
+@mixin flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+@mixin flex-col {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+@mixin flex-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+@mixin nunito($weight: 400){
+    font-family: 'Nunito';
+    font-weight: $weight;
+}
+
+@mixin font-sizes($size: 16px, $height: 24px) {
+    font-size: $size;
+    line-height:$height; 
+}
+
+@mixin square-size ($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin transition($time: .4s) {
+    -webkit-transition: all $time ease;
+    -o-transition: all $time ease;
+    transition: all $time ease;
+}
+
+@mixin upper {
+    text-transform: uppercase;
+}
+
+@mixin maxWidth($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}

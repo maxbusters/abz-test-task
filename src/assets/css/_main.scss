@@ -1,0 +1,6 @@
+.main {
+    @include nunito(400);
+    @import "@/assets/css/_main_intro.scss";
+    @import "@/assets/css/_main_users.scss";
+    @import "@/assets/css/_main_signup.scss";
+}

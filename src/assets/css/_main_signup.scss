@@ -1,0 +1,305 @@
+
+.signup {
+    margin-bottom: 100px;
+
+    &__container {
+        @extend .container;
+        @include maxWidth(400px){
+            width: 100%;
+            max-width: 320px;
+        }
+    }
+
+    &__wrapper {
+        @include flex-col;
+    }
+
+    &__title {
+        @extend .title-h1;
+        margin-top: 50px;
+    }
+
+    .form {
+        @include flex-col;
+
+        .input {
+            margin-top: 50px;
+            position: relative;
+
+            &__field {
+                position: relative;
+
+                input {
+                    @include font-sizes(16px, 26px);
+                    width: 380px;
+                    padding: 14px 16px;
+
+                    @include maxWidth(400px) {
+                        width: 328px;
+                    }
+
+                    @include maxWidth(360px){
+                        width: 100%;
+                    }
+
+                    border: none;
+                    border:1px solid $border-gray;
+                    border-radius: 4px;
+                    background-color: $light-gray;
+                    outline: none;
+                    color: $black-87;
+                }
+
+                input::-webkit-input-placeholder {
+                    color: $text-gray;
+                }
+
+                input::-moz-placeholder {
+                    color: $text-gray;
+                }
+
+                input:-ms-input-placeholder {
+                    color: $text-gray;
+                }
+
+                input::-ms-input-placeholder {
+                    color: $text-gray;
+                }
+
+                input::placeholder {
+                    color: $text-gray;
+                }
+            }
+
+            &__field--not-valid {
+                input {
+                    border: 2px solid $error;
+                }
+
+                .input__label {
+                    color: $error;
+                }
+            }
+
+
+
+            &__label {
+                background-color: $light-gray;
+                @include nunito(500);
+                @include font-sizes(12px, 14px);
+
+                color: $text-gray;
+                position: absolute;
+                padding: 0 4px;
+                bottom: 47px;
+                left: 16px;
+            }
+
+            &__helper {
+                @include font-sizes(12px, 14px);
+                color: $text-gray;
+                position: absolute;
+                display: block;
+                left: 16px;
+                padding-top: 4px;
+            }
+
+            &__error {
+                @include font-sizes(12px, 14px);
+                position: absolute;
+                color: red;
+                left: 16px;
+                padding-top: 4px;
+            }
+        }
+
+        .radios {
+            width: 100%;
+            @include maxWidth(359px){
+                width: 65%;
+            }
+            margin-bottom: 45px;
+
+            span {
+                @include font-sizes(16px, 26px);
+                color: $black-87;
+            }
+
+            &__title {
+                margin-bottom: 11px;
+            }
+
+            margin-top: 43px;
+
+            .el {
+                &__container {
+                    display: block;
+                    position: relative;
+                    padding-left: 33px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    font-size: 22px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+
+                .el__container input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                }
+
+                /* Create a custom radio button */
+                .el__checkmark {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 20px;
+                    width: 20px;
+                    background-color: $light-gray;
+                    border: 1px solid $border-gray;
+                    border-radius: 50%;
+                }
+
+                /* On mouse-over, add a grey background color */
+                .el__container:hover input~.el__checkmark {
+                    border-color: $blue;
+                }
+
+                /* When the radio button is checked, add a blue background */
+                .el__container input:checked~.el__checkmark {
+                    background-color: $light-gray;
+                    border-color: $blue;
+                }
+
+                /* Create the indicator (the dot/circle - hidden when not checked) */
+                .el__checkmark:after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                }
+
+                /* Show the indicator (dot/circle) when checked */
+                .el__container input:checked~.el__checkmark:after {
+                    display: block;
+                }
+
+                /* Style the indicator (dot/circle) */
+                .el__container .el__checkmark:after {
+                    top: 4px;
+                    left: 4px;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: $blue;
+                }
+            }
+        }
+
+        &__upload-label {
+            margin-bottom: 50px;
+        }
+
+        .upload {
+            @include flex-row;
+            width: 380px;
+            height: 54px;
+            cursor: pointer;
+            position: relative;
+
+            @include maxWidth(450px) {
+                width: 328px;
+            }
+
+            @include maxWidth(330px){
+                width: 100%;
+                max-width: 300px;
+            }
+
+            &__btn {
+                span {
+                    @include font-sizes(16px, 26px);
+                    padding: 14px 15px;
+                    display: inline-block;
+                }
+
+                border: 1px solid $black-87;
+                border-radius: 4px 0px 0px 4px;
+            }
+
+            &__file {
+                border: 1px solid $border-gray;
+                border-radius: 0px 4px 4px 0px;
+                width: 100%;
+
+                span {
+                    @include font-sizes(16px, 26px);
+                    display: inline-block;
+                    padding: 14px 16px;
+                }
+            }
+
+            &__placeholder {
+                color: $text-gray;
+            }
+
+            &__filename {
+                display: none;
+                color: $black-87;
+                width: 250px;
+                overflow: hidden;
+                white-space: nowrap;
+                -o-text-overflow: ellipsis;
+                   text-overflow: ellipsis;
+            }
+
+            &__error {
+                @include font-sizes(12px, 14px);
+                position: absolute;
+                color: red;
+                left: 16px;
+                padding-top: 4px;
+                top: 54px;
+            }
+        }
+
+        .upload:hover {
+            .upload__btn {
+                span {
+                    color: $blue;
+                }
+            }
+        }
+
+        .upload--not-valid {
+            .upload__btn {
+                border: 2px solid $error;
+            }
+
+            .upload__file {
+                border: 2px solid $error;
+                border-left: 0px;
+            }
+        }
+
+        &__submit {
+            @extend .button;
+            padding: 4px 23px;
+            padding-right: 22px;
+        }
+
+        &__submit--disable {
+            @extend .button--disable;
+            padding: 4px 23px;
+            padding-right: 22px;
+        }
+    }
+
+    &__success {
+        margin-top: 50px;
+    }
+}

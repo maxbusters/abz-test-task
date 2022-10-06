@@ -1,32 +1,35 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <loading
+      :active="loading"
+      :can-cancel="false"
+      :is-full-page="true"
+      :loader="'spinner'"
+      :opacity="1"
+      :lock-scroll="true"
+      :color="'#00BDD3'"
+      :height="48"
+      :width="48"
+      :background-color="'white'"
+    />
+    <main-header></main-header>
     <router-view />
   </div>
 </template>
+<script>
+import MainHeader from "./components/general/MainHeader.vue";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 
+export default {
+  components: { MainHeader, Loading },
+  computed: {
+    loading() {
+      return this.$store.getters.LOADING;
+    },
+  },
+};
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import "@/assets/css/app.scss";
 </style>

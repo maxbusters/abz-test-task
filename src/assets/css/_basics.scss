@@ -1,0 +1,111 @@
+* {
+    @include nunito(400);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: $light-gray;
+}
+
+main {
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+}
+
+section+section {
+    margin-top: 140px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    width: 81.25%;
+    margin: 0 auto;
+    max-width: 1170px;
+}
+
+.button {
+    @include nunito(400);
+    @include font-sizes(16px, 24px);
+    display: inline-block;
+    background-color: $yellow;
+    color: $black-87;
+    border-radius: 80px;
+    white-space: nowrap;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: $yellow-hover;
+}
+
+.button-signup {
+    padding: 4px 23px;
+}
+
+.button--disable {
+    width: 100px;
+    @include nunito(400);
+    @include font-sizes(16px, 24px);
+    display: inline-block;
+    text-align: center;
+    background-color: $disable-gray;
+    border-radius: 80px;
+    white-space: nowrap;
+    color: $white-87;
+}
+
+.title-h1 {
+    @include font-sizes(40px, 40px);
+    text-align: center;
+    color: $black-87;
+    @include maxWidth(400px){
+        margin: 0 auto;
+        max-width: 328px;
+    }
+}
+
+.frame {
+    color: $black-87;
+    max-width: 330px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+
+    @include maxWidth(1024px) {
+        max-width: 242px;
+    }
+
+    @include maxWidth(768px) {
+        max-width: 304px;
+    }
+
+    @include maxWidth(360px) {
+        max-width: 288px;
+    }
+}
